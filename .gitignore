@@ -1,0 +1,8 @@
+# Ignore git
+.git/
+
+# Ignore Bazel Uutput symlinks
+bazel-*
+
+# Ignore Cargo/Maven builds
+target/

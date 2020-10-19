@@ -1,0 +1,16 @@
+# From https://github.com/google/cargo-raze#remote-dependency-mode
+[package]
+name = "compile_with_bazel"
+version = "0.0.0"
+
+# Mandatory (or Cargo tooling is unhappy)
+[lib]
+path = "fake_lib.rs"
+
+[dependencies]
+demo-prost-build = { git = "https://github.com/ttiurani/bazel-prost-build-bug.git", branch = "master" }
+
+[raze]
+workspace_path = "//third_party/cargo"
+genmode = "Remote"
+default_gen_buildrs = true

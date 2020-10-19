@@ -1,0 +1,18 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# Rust
+load("//third_party/cargo:crates.bzl", "raze_fetch_remote_crates")
+raze_fetch_remote_crates()
+http_archive(
+    name = "io_bazel_rules_rust",
+    sha256 = "0ff801f659d3ae4fc279dbfc00412a1468e0e6d4b7ab0b614a1c9cfb9f5b2c8b",
+    strip_prefix = "rules_rust-726b1821508655432873619edd5abe10a6d73055",
+    urls = [
+        # Master branch as of 2020-10-19
+        "https://github.com/bazelbuild/rules_rust/archive/726b1821508655432873619edd5abe10a6d73055.tar.gz",
+    ],
+)
+load("@io_bazel_rules_rust//rust:repositories.bzl", "rust_repositories")
+rust_repositories(version = "1.46.0", edition="2018", rustfmt_version = "1.4.18")
+load("@io_bazel_rules_rust//:workspace.bzl", "rust_workspace")
+rust_workspace()
