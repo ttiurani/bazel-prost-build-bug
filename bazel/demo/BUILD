@@ -1,12 +1,11 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@io_bazel_rules_rust//rust:rust.bzl", "rust_library", "rust_test")
-load("//:format.bzl", "rust_format")
+load("@io_bazel_rules_rust//rust:rust.bzl", "rust_library")
 
 rust_library(
-    name = "demo-bazel-rust-lib",
+    name = "demo",
     deps = [
-        "//third_party/cargo:demo-prost-build",
+        "//third_party/cargo:demo_prost_build",
     ],
     srcs = glob(["src/**"]),
 )

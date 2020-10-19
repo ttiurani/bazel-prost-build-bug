@@ -1,0 +1,22 @@
+"""
+@generated
+cargo-raze workspace build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+package(default_visibility = ["//visibility:public"])
+
+licenses([
+    "notice",  # See individual crates for specific licenses
+])
+
+# Aliased targets
+alias(
+    name = "demo_prost_build",
+    actual = "@raze__demo_prost_build__0_0_1//:demo_prost_build",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
